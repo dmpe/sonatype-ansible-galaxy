@@ -31,7 +31,7 @@
     <module>nexus-repository-ansible</module>
   </modules>
 
-  <inceptionYear>2018</inceptionYear>
+  <inceptionYear>2020</inceptionYear>
 
   <properties>
     <nxrm-version>3.27.0-02</nxrm-version>
@@ -68,11 +68,6 @@
       <groupId>org.sonatype.goodies</groupId>
       <artifactId>goodies-testsupport</artifactId>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.yaml</groupId>
-      <artifactId>snakeyaml</artifactId>
-      <version>1.26</version>
     </dependency>
     <dependency>
       <groupId>org.sonatype.nexus</groupId>
