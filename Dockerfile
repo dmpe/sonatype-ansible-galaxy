@@ -4,8 +4,8 @@ ARG NEXUS_VERSION=latest
 
 FROM maven:3-jdk-8-alpine AS build
 
-COPY . /nexus-repository-apk/
-RUN cd /nexus-repository-apk/; \
+COPY . /nexus-repository-ansible/
+RUN cd /nexus-repository-ansible/; \
     mvn clean package -PbuildKar;
 
 FROM sonatype/nexus3:$NEXUS_VERSION

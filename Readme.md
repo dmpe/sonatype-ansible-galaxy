@@ -42,19 +42,21 @@ Also, there is a good amount of information available at [Bundle Development](ht
 
 ### Download
 
-Find pre-compiled files [here](https://search.maven.org/search?q=g:%22org.sonatype.nexus.plugins%22%20AND%20a:%22nexus-repository-apk%22).
 
 ### Building
 
 To build the project and generate the bundle use Maven
 
-    mvn clean package -PbuildKar -f ansible-parent
+    mvn clean package -PbuildKar 
 
 If everything checks out, the bundle for apk should be available in the `target` folder
 
 #### Build with Docker
 
-`docker build -t nexus-repository-apk:0.0.1 .`
+```
+buildah bud -t nexus-repository-ansible:latest .
+podman run -d -p 8081:8081 --name nexus nexus-repository-ansible:latest
+```
 
 #### Run as a Docker container
 
