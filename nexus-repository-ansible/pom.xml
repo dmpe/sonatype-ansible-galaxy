@@ -23,7 +23,6 @@
   </parent>
 
   <artifactId>nexus-repository-ansible</artifactId>
-  <packaging>bundle</packaging>
 
   <inceptionYear>2020</inceptionYear>
 

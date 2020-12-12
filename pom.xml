@@ -54,8 +54,8 @@
     <dependency>
       <groupId>se.sawano.java</groupId>
       <artifactId>alphanumeric-comparator</artifactId>
-      <version>1.4.1</version>
       <scope>provided</scope>
+      <version>1.4.1</version>
     </dependency>
 
     <dependency>
