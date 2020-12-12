@@ -28,9 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @since 1.1.8
  */
 @JsonIgnoreProperties({"format", "type"})
-public class AnsibleProxyRepositoryApiRequest
-    extends ProxyRepositoryApiRequest
-{
+public class AnsibleProxyRepositoryApiRequest extends ProxyRepositoryApiRequest {
   @JsonCreator
   public AnsibleProxyRepositoryApiRequest(
       @JsonProperty("name") final String name,
