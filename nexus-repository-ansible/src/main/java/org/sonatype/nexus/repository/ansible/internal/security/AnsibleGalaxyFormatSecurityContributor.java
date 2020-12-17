@@ -12,14 +12,13 @@
  */
 package org.sonatype.nexus.repository.ansible.internal.security;
 
+import org.sonatype.nexus.repository.Format;
+import org.sonatype.nexus.repository.ansible.internal.AnsibleGalaxyFormat;
+import org.sonatype.nexus.repository.security.RepositoryFormatSecurityContributor;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
-
-import org.sonatype.nexus.repository.ansible.internal.AnsibleGalaxyFormat;
-
-import org.sonatype.nexus.repository.Format;
-import org.sonatype.nexus.repository.security.RepositoryFormatSecurityContributor;
 
 /**
  * AnsibleGalaxy format security resource.
@@ -27,10 +26,9 @@ import org.sonatype.nexus.repository.security.RepositoryFormatSecurityContributo
 @Named
 @Singleton
 public class AnsibleGalaxyFormatSecurityContributor
-    extends RepositoryFormatSecurityContributor
-{
-  @Inject
-  public AnsibleGalaxyFormatSecurityContributor(@Named(AnsibleGalaxyFormat.NAME) final Format format) {
-    super(format);
-  }
+        extends RepositoryFormatSecurityContributor {
+    @Inject
+    public AnsibleGalaxyFormatSecurityContributor(@Named(AnsibleGalaxyFormat.NAME) final Format format) {
+        super(format);
+    }
 }

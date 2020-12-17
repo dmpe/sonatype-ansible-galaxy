@@ -12,14 +12,10 @@
  */
 package org.sonatype.nexus.repository.ansible.internal
 
-import javax.inject.Inject
-import javax.inject.Provider
-
-import org.sonatype.nexus.repository.ansible.internal.security.AnsibleGalaxySecurityFacet
-
 import org.sonatype.nexus.repository.Format
 import org.sonatype.nexus.repository.RecipeSupport
 import org.sonatype.nexus.repository.Type
+import org.sonatype.nexus.repository.ansible.internal.security.AnsibleGalaxySecurityFacet
 import org.sonatype.nexus.repository.attributes.AttributesFacet
 import org.sonatype.nexus.repository.cache.NegativeCacheFacet
 import org.sonatype.nexus.repository.cache.NegativeCacheHandler
@@ -32,77 +28,74 @@ import org.sonatype.nexus.repository.storage.DefaultComponentMaintenanceImpl
 import org.sonatype.nexus.repository.storage.StorageFacet
 import org.sonatype.nexus.repository.storage.UnitOfWorkHandler
 import org.sonatype.nexus.repository.view.ConfigurableViewFacet
-import org.sonatype.nexus.repository.view.handlers.BrowseUnsupportedHandler
-import org.sonatype.nexus.repository.view.handlers.ConditionalRequestHandler
-import org.sonatype.nexus.repository.view.handlers.ContentHeadersHandler
-import org.sonatype.nexus.repository.view.handlers.ExceptionHandler
-import org.sonatype.nexus.repository.view.handlers.HandlerContributor
-import org.sonatype.nexus.repository.view.handlers.TimingHandler
+import org.sonatype.nexus.repository.view.handlers.*
+
+import javax.inject.Inject
+import javax.inject.Provider
 
 /**
  * Support for AnsibleGalaxy recipes.
  */
 abstract class AnsibleGalaxyRecipeSupport
-    extends RecipeSupport
-{
-  @Inject
-  Provider<AnsibleGalaxySecurityFacet> securityFacet
+        extends RecipeSupport {
+    @Inject
+    Provider<AnsibleGalaxySecurityFacet> securityFacet
 
-  @Inject
-  Provider<ConfigurableViewFacet> viewFacet
+    @Inject
+    Provider<ConfigurableViewFacet> viewFacet
 
-  @Inject
-  Provider<StorageFacet> storageFacet
+    @Inject
+    Provider<StorageFacet> storageFacet
 
-  @Inject
-  Provider<SearchFacet> searchFacet
+    @Inject
+    Provider<SearchFacet> searchFacet
 
-  @Inject
-  Provider<AttributesFacet> attributesFacet
+    @Inject
+    Provider<AttributesFacet> attributesFacet
 
-  @Inject
-  ExceptionHandler exceptionHandler
+    @Inject
+    ExceptionHandler exceptionHandler
 
-  @Inject
-  TimingHandler timingHandler
+    @Inject
+    TimingHandler timingHandler
 
-  @Inject
-  SecurityHandler securityHandler
+    @Inject
+    SecurityHandler securityHandler
 
-  @Inject
-  PartialFetchHandler partialFetchHandler
+    @Inject
+    PartialFetchHandler partialFetchHandler
 
-  @Inject
-  ConditionalRequestHandler conditionalRequestHandler
+    @Inject
+    ConditionalRequestHandler conditionalRequestHandler
 
-  @Inject
-  ContentHeadersHandler contentHeadersHandler
+    @Inject
+    ContentHeadersHandler contentHeadersHandler
 
-  @Inject
-  UnitOfWorkHandler unitOfWorkHandler
+    @Inject
+    UnitOfWorkHandler unitOfWorkHandler
 
-  @Inject
-  BrowseUnsupportedHandler browseUnsupportedHandler
+    @Inject
+    BrowseUnsupportedHandler browseUnsupportedHandler
 
-  @Inject
-  HandlerContributor handlerContributor
+    @Inject
+    HandlerContributor handlerContributor
 
-  @Inject
-  Provider<DefaultComponentMaintenanceImpl> componentMaintenanceFacet
+    @Inject
+    Provider<DefaultComponentMaintenanceImpl> componentMaintenanceFacet
 
-  @Inject
-  Provider<HttpClientFacet> httpClientFacet
+    @Inject
+    Provider<HttpClientFacet> httpClientFacet
 
-  @Inject
-  Provider<PurgeUnusedFacet> purgeUnusedFacet
+    @Inject
+    Provider<PurgeUnusedFacet> purgeUnusedFacet
 
-  @Inject
-  Provider<NegativeCacheFacet> negativeCacheFacet
+    @Inject
+    Provider<NegativeCacheFacet> negativeCacheFacet
 
-  @Inject
-  NegativeCacheHandler negativeCacheHandler
+    @Inject
+    NegativeCacheHandler negativeCacheHandler
 
-  protected AnsibleGalaxyRecipeSupport(final Type type, final Format format) {
-    super(type, format)
-  }
+    protected AnsibleGalaxyRecipeSupport(final Type type, final Format format) {
+        super(type, format)
+    }
 }

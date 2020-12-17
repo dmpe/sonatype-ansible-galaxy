@@ -1,13 +1,12 @@
 package org.sonatype.nexus.repository.ansible.internal;
-import java.util.List;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
+import com.google.common.collect.ImmutableList;
 import org.sonatype.nexus.common.hash.HashAlgorithm;
 import org.sonatype.nexus.repository.Format;
 
-import com.google.common.collect.ImmutableList;
+import javax.inject.Named;
+import javax.inject.Singleton;
+import java.util.List;
 
 import static org.sonatype.nexus.common.hash.HashAlgorithm.SHA1;
 import static org.sonatype.nexus.common.hash.HashAlgorithm.SHA256;

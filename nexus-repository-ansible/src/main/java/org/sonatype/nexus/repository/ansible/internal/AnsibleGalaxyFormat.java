@@ -12,10 +12,10 @@
  */
 package org.sonatype.nexus.repository.ansible.internal;
 
+import org.sonatype.nexus.repository.Format;
+
 import javax.inject.Named;
 import javax.inject.Singleton;
-
-import org.sonatype.nexus.repository.Format;
 
 /**
  * AnsibleGalaxy repository format.
@@ -23,11 +23,10 @@ import org.sonatype.nexus.repository.Format;
 @Named(AnsibleGalaxyFormat.NAME)
 @Singleton
 public class AnsibleGalaxyFormat
-    extends Format
-{
-  public static final String NAME = "ansible";
+        extends Format {
+    public static final String NAME = "ansible";
 
-  public AnsibleGalaxyFormat() {
-    super(NAME);
-  }
+    public AnsibleGalaxyFormat() {
+        super(NAME);
+    }
 }

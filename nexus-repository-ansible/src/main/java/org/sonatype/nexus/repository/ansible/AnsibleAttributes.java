@@ -1,11 +1,12 @@
 package org.sonatype.nexus.repository.ansible;
+
+import org.sonatype.nexus.common.collect.NestedAttributesMap;
+import org.sonatype.repository.ansible.internal.database.AnsibleProperties;
+
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
-import org.sonatype.nexus.common.collect.NestedAttributesMap;
-import org.sonatype.repository.ansible.internal.database.AnsibleProperties;
 
 public class AnsibleAttributes {
     private final Map<AnsibleProperties, Object> attributesEnumMap;
@@ -32,70 +33,69 @@ public class AnsibleAttributes {
         return getValue(AnsibleProperties.NAME, String.class);
     }
 
-    public String getVersion() {
-        return getValue(AnsibleProperties.VERSION, String.class);
-    }
-
-    public String getAppVersion() {
-        return getValue(AnsibleProperties.APP_VERSION, String.class);
-    }
-
-    public String getDescription() {
-        return getValue(AnsibleProperties.DESCRIPTION, String.class);
-    }
-
-    public String getIcon() {
-        return getValue(AnsibleProperties.ICON, String.class);
-    }
-
-    public String getEngine() {
-        return getValue(AnsibleProperties.ENGINE, String.class);
-    }
-
-    public List<String> getKeywords() {
-        return getValue(AnsibleProperties.KEYWORDS, List.class);
-    }
-
-
-    public List<Map<String, String>> getMaintainers() {
-
-        return getValue(AnsibleProperties.MAINTAINERS, List.class);
-    }
-
-    public List<String> getSources() {
-        return getValue(AnsibleProperties.SOURCES, List.class);
-    }
-
     public void setName(final String name) {
         attributesEnumMap.put(AnsibleProperties.NAME, name);
     }
 
-    public void setDescription(final String description) {
-        attributesEnumMap.put(AnsibleProperties.DESCRIPTION, description);
+    public String getVersion() {
+        return getValue(AnsibleProperties.VERSION, String.class);
     }
 
     public void setVersion(final String version) {
         attributesEnumMap.put(AnsibleProperties.VERSION, version);
     }
 
-    public void setIcon(final String icon) {
-        attributesEnumMap.put(AnsibleProperties.ICON, icon);
+    public String getAppVersion() {
+        return getValue(AnsibleProperties.APP_VERSION, String.class);
     }
 
     public void setAppVersion(final String appVersion) {
         attributesEnumMap.put(AnsibleProperties.APP_VERSION, appVersion);
     }
 
+    public String getDescription() {
+        return getValue(AnsibleProperties.DESCRIPTION, String.class);
+    }
+
+    public void setDescription(final String description) {
+        attributesEnumMap.put(AnsibleProperties.DESCRIPTION, description);
+    }
+
+    public String getIcon() {
+        return getValue(AnsibleProperties.ICON, String.class);
+    }
+
+    public void setIcon(final String icon) {
+        attributesEnumMap.put(AnsibleProperties.ICON, icon);
+    }
+
+    public String getEngine() {
+        return getValue(AnsibleProperties.ENGINE, String.class);
+    }
+
     public void setEngine(final String engine) {
         attributesEnumMap.put(AnsibleProperties.ENGINE, engine);
+    }
+
+    public List<String> getKeywords() {
+        return getValue(AnsibleProperties.KEYWORDS, List.class);
     }
 
     public void setKeywords(final List<String> keywords) {
         attributesEnumMap.put(AnsibleProperties.KEYWORDS, keywords);
     }
 
+    public List<Map<String, String>> getMaintainers() {
+
+        return getValue(AnsibleProperties.MAINTAINERS, List.class);
+    }
+
     public void setMaintainers(final List<Map<String, String>> maintainers) {
         attributesEnumMap.put(AnsibleProperties.MAINTAINERS, maintainers);
+    }
+
+    public List<String> getSources() {
+        return getValue(AnsibleProperties.SOURCES, List.class);
     }
 
     private <T> T getValue(AnsibleProperties property, Class<T> tClass) {

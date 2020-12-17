@@ -12,6 +12,10 @@
  */
 package org.sonatype.nexus.repository.ansible.internal.security;
 
+import org.apache.shiro.authz.AuthorizationException;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
 import org.sonatype.goodies.testsupport.TestSupport;
 import org.sonatype.nexus.repository.Format;
 import org.sonatype.nexus.repository.Repository;
@@ -19,11 +23,6 @@ import org.sonatype.nexus.repository.http.HttpMethods;
 import org.sonatype.nexus.repository.security.ContentPermissionChecker;
 import org.sonatype.nexus.repository.security.VariableResolverAdapter;
 import org.sonatype.nexus.repository.view.Request;
-
-import org.apache.shiro.authz.AuthorizationException;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
 
 import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
@@ -33,58 +32,57 @@ import static org.mockito.Mockito.when;
 import static org.sonatype.nexus.security.BreadActions.READ;
 
 public class AnsibleGalaxySecurityFacetTest
-    extends TestSupport
-{
-  @Mock
-  Request request;
+        extends TestSupport {
+    @Mock
+    Request request;
 
-  @Mock
-  Repository repository;
+    @Mock
+    Repository repository;
 
-  @Mock
-  ContentPermissionChecker contentPermissionChecker;
+    @Mock
+    ContentPermissionChecker contentPermissionChecker;
 
-  @Mock
-  VariableResolverAdapter variableResolverAdapter;
+    @Mock
+    VariableResolverAdapter variableResolverAdapter;
 
-  @Mock
-  AnsibleGalaxyFormatSecurityContributor securityContributor;
+    @Mock
+    AnsibleGalaxyFormatSecurityContributor securityContributor;
 
-  AnsibleGalaxySecurityFacet ansibleSecurityFacet;
+    AnsibleGalaxySecurityFacet ansibleSecurityFacet;
 
-  @Before
-  public void setupConfig() throws Exception {
-    when(request.getPath()).thenReturn("/some/path.txt");
-    when(request.getAction()).thenReturn(HttpMethods.GET);
+    @Before
+    public void setupConfig() throws Exception {
+        when(request.getPath()).thenReturn("/some/path.txt");
+        when(request.getAction()).thenReturn(HttpMethods.GET);
 
-    when(repository.getFormat()).thenReturn(new Format("ansible") { });
-    when(repository.getName()).thenReturn("AnsibleGalaxySecurityFacetTest");
+        when(repository.getFormat()).thenReturn(new Format("ansible") {
+        });
+        when(repository.getName()).thenReturn("AnsibleGalaxySecurityFacetTest");
 
-    ansibleSecurityFacet = new AnsibleGalaxySecurityFacet(securityContributor,
-        variableResolverAdapter, contentPermissionChecker);
+        ansibleSecurityFacet = new AnsibleGalaxySecurityFacet(securityContributor,
+                variableResolverAdapter, contentPermissionChecker);
 
-    ansibleSecurityFacet.attach(repository);
-  }
-
-  @Test
-  public void testEnsurePermitted_permitted() throws Exception {
-    when(contentPermissionChecker.isPermitted(eq("AnsibleGalaxySecurityFacetTest"), eq("ansible"), eq(READ), any()))
-        .thenReturn(true);
-    ansibleSecurityFacet.ensurePermitted(request);
-  }
-
-  @Test
-  public void testEnsurePermitted_notPermitted() throws Exception {
-    when(contentPermissionChecker.isPermitted(eq("AnsibleGalaxySecurityFacetTest"), eq("ansible"), eq(READ), any()))
-        .thenReturn(false);
-    try {
-      ansibleSecurityFacet.ensurePermitted(request);
-      fail("AuthorizationException should have been thrown");
-    }
-    catch (AuthorizationException e) {
-      //expected
+        ansibleSecurityFacet.attach(repository);
     }
 
-    verify(contentPermissionChecker).isPermitted(eq("AnsibleGalaxySecurityFacetTest"), eq("ansible"), eq(READ), any());
-  }
+    @Test
+    public void testEnsurePermitted_permitted() throws Exception {
+        when(contentPermissionChecker.isPermitted(eq("AnsibleGalaxySecurityFacetTest"), eq("ansible"), eq(READ), any()))
+                .thenReturn(true);
+        ansibleSecurityFacet.ensurePermitted(request);
+    }
+
+    @Test
+    public void testEnsurePermitted_notPermitted() throws Exception {
+        when(contentPermissionChecker.isPermitted(eq("AnsibleGalaxySecurityFacetTest"), eq("ansible"), eq(READ), any()))
+                .thenReturn(false);
+        try {
+            ansibleSecurityFacet.ensurePermitted(request);
+            fail("AuthorizationException should have been thrown");
+        } catch (AuthorizationException e) {
+            //expected
+        }
+
+        verify(contentPermissionChecker).isPermitted(eq("AnsibleGalaxySecurityFacetTest"), eq("ansible"), eq(READ), any());
+    }
 }

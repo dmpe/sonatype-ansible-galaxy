@@ -18,14 +18,13 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class AnsibleGalaxyFormatTest
-{
-  private AnsibleGalaxyFormat underTest;
+public class AnsibleGalaxyFormatTest {
+    private AnsibleGalaxyFormat underTest;
 
-  @Test
-  public void checkFormatNameIsCorrect() {
-    underTest = new AnsibleGalaxyFormat();
+    @Test
+    public void checkFormatNameIsCorrect() {
+        underTest = new AnsibleGalaxyFormat();
 
-    assertThat(underTest.getValue(), is(equalTo("ansible")));
-  }
+        assertThat(underTest.getValue(), is(equalTo("ansible")));
+    }
 }

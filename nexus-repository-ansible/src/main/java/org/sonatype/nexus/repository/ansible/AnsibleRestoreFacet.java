@@ -12,27 +12,26 @@
  */
 package org.sonatype.nexus.repository.ansible;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import org.sonatype.nexus.repository.Facet;
 import org.sonatype.nexus.repository.Facet.Exposed;
 import org.sonatype.nexus.repository.storage.AssetBlob;
 import org.sonatype.nexus.repository.storage.Query;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 /**
  * @since 1.0.0
  */
 @Exposed
-public interface AnsibleRestoreFacet extends Facet
-{
-  void restore(final AssetBlob assetBlob, final String path) throws IOException;
+public interface AnsibleRestoreFacet extends Facet {
+    void restore(final AssetBlob assetBlob, final String path) throws IOException;
 
-  boolean assetExists(final String path);
+    boolean assetExists(final String path);
 
-  boolean componentRequired(final String name);
+    boolean componentRequired(final String name);
 
-  Query getComponentQuery(final AnsibleAttributes attributes);
+    Query getComponentQuery(final AnsibleAttributes attributes);
 
-  AnsibleAttributes extractComponentAttributesFromArchive(final String blobName, final InputStream is) throws IOException;
+    AnsibleAttributes extractComponentAttributesFromArchive(final String blobName, final InputStream is) throws IOException;
 }

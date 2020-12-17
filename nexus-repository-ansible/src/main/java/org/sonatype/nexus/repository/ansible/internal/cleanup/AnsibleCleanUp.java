@@ -1,18 +1,14 @@
 package org.sonatype.nexus.repository.ansible.internal.cleanup;
-import java.util.Map;
+
+import com.google.common.collect.ImmutableMap;
+import org.sonatype.nexus.cleanup.config.CleanupPolicyConfiguration;
+import org.sonatype.nexus.repository.ansible.internal.AnsibleFormat;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
+import java.util.Map;
 
-import org.sonatype.nexus.cleanup.config.CleanupPolicyConfiguration;
-
-import com.google.common.collect.ImmutableMap;
-import org.sonatype.nexus.repository.ansible.internal.AnsibleFormat;
-
-import static org.sonatype.nexus.repository.search.DefaultComponentMetadataProducer.IS_PRERELEASE_KEY;
-import static org.sonatype.nexus.repository.search.DefaultComponentMetadataProducer.LAST_BLOB_UPDATED_KEY;
-import static org.sonatype.nexus.repository.search.DefaultComponentMetadataProducer.LAST_DOWNLOADED_KEY;
-import static org.sonatype.nexus.repository.search.DefaultComponentMetadataProducer.REGEX_KEY;
+import static org.sonatype.nexus.repository.search.DefaultComponentMetadataProducer.*;
 
 
 /**
