@@ -1,4 +1,4 @@
-package org.sonatype.nexus.repository.ansible;
+package org.sonatype.nexus.repository.ansible.internal;
 
 import org.sonatype.nexus.common.collect.NestedAttributesMap;
 import org.sonatype.repository.ansible.internal.database.AnsibleProperties;

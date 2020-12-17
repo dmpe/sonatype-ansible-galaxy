@@ -14,6 +14,7 @@ package org.sonatype.nexus.repository.ansible;
 
 import org.sonatype.nexus.repository.Facet;
 import org.sonatype.nexus.repository.Facet.Exposed;
+import org.sonatype.nexus.repository.ansible.internal.AnsibleAttributes;
 import org.sonatype.nexus.repository.storage.AssetBlob;
 import org.sonatype.nexus.repository.storage.Query;
 

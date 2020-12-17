@@ -24,8 +24,7 @@ import javax.inject.Named;
  * AnsibleGalaxy format security facet.
  */
 @Named
-public class AnsibleGalaxySecurityFacet
-        extends SecurityFacetSupport {
+public class AnsibleGalaxySecurityFacet extends SecurityFacetSupport {
     @Inject
     public AnsibleGalaxySecurityFacet(final AnsibleGalaxyFormatSecurityContributor securityResource,
                                       @Named("simple") final VariableResolverAdapter variableResolverAdapter,

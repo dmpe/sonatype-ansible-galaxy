@@ -36,8 +36,7 @@ import javax.inject.Provider
 /**
  * Support for AnsibleGalaxy recipes.
  */
-abstract class AnsibleGalaxyRecipeSupport
-        extends RecipeSupport {
+abstract class AnsibleGalaxyRecipeSupport extends RecipeSupport {
     @Inject
     Provider<AnsibleGalaxySecurityFacet> securityFacet
 

@@ -22,8 +22,7 @@ import javax.inject.Singleton;
  */
 @Named(AnsibleGalaxyFormat.NAME)
 @Singleton
-public class AnsibleGalaxyFormat
-        extends Format {
+public class AnsibleGalaxyFormat extends Format {
     public static final String NAME = "ansible";
 
     public AnsibleGalaxyFormat() {
