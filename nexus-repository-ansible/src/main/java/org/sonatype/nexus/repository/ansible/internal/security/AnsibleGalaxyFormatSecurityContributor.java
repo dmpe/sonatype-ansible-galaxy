@@ -25,8 +25,7 @@ import javax.inject.Singleton;
  */
 @Named
 @Singleton
-public class AnsibleGalaxyFormatSecurityContributor
-        extends RepositoryFormatSecurityContributor {
+public class AnsibleGalaxyFormatSecurityContributor extends RepositoryFormatSecurityContributor {
     @Inject
     public AnsibleGalaxyFormatSecurityContributor(@Named(AnsibleGalaxyFormat.NAME) final Format format) {
         super(format);

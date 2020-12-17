@@ -1,7 +1,7 @@
 package org.sonatype.nexus.repository.ansible.internal;
 
 import org.sonatype.nexus.common.collect.NestedAttributesMap;
-import org.sonatype.repository.ansible.internal.database.AnsibleProperties;
+import org.sonatype.nexus.repository.ansible.internal.database.AnsibleProperties;
 
 import java.util.EnumMap;
 import java.util.List;
@@ -29,6 +29,14 @@ public class AnsibleAttributes {
         attributesEnumMap.forEach((helmProperties, o) -> attributesMap.set(helmProperties.getPropertyName(), o));
     }
 
+    public String getNamespace() {
+        return getValue(AnsibleProperties.NAMESPACE, String.class);
+    }
+
+    public void setNamespace(final String namespace) {
+        attributesEnumMap.put(AnsibleProperties.NAMESPACE, namespace);
+    }
+
     public String getName() {
         return getValue(AnsibleProperties.NAME, String.class);
     }
@@ -45,12 +53,21 @@ public class AnsibleAttributes {
         attributesEnumMap.put(AnsibleProperties.VERSION, version);
     }
 
-    public String getAppVersion() {
-        return getValue(AnsibleProperties.APP_VERSION, String.class);
+    public List<Map<String, String>> getAuthors() {
+
+        return getValue(AnsibleProperties.AUTHORS, List.class);
     }
 
-    public void setAppVersion(final String appVersion) {
-        attributesEnumMap.put(AnsibleProperties.APP_VERSION, appVersion);
+    public void setAuthors(final List<Map<String, String>> maintainers) {
+        attributesEnumMap.put(AnsibleProperties.AUTHORS, maintainers);
+    }
+
+    public List<String> getTags() {
+        return getValue(AnsibleProperties.TAGS, List.class);
+    }
+
+    public void setTags(final List<String> tags) {
+        attributesEnumMap.put(AnsibleProperties.TAGS, tags);
     }
 
     public String getDescription() {
@@ -61,41 +78,36 @@ public class AnsibleAttributes {
         attributesEnumMap.put(AnsibleProperties.DESCRIPTION, description);
     }
 
-    public String getIcon() {
-        return getValue(AnsibleProperties.ICON, String.class);
+    public String getLicense() {
+        return getValue(AnsibleProperties.LICENSE, String.class);
     }
 
-    public void setIcon(final String icon) {
-        attributesEnumMap.put(AnsibleProperties.ICON, icon);
+    public void setLicense(final String license) {
+        attributesEnumMap.put(AnsibleProperties.LICENSE, license);
     }
 
-    public String getEngine() {
-        return getValue(AnsibleProperties.ENGINE, String.class);
+    public void setDocs(final String docs) {
+        attributesEnumMap.put(AnsibleProperties.DOCUMENTATION, docs);
     }
 
-    public void setEngine(final String engine) {
-        attributesEnumMap.put(AnsibleProperties.ENGINE, engine);
+    public String getDocs() {
+        return getValue(AnsibleProperties.DOCUMENTATION, String.class);
     }
 
-    public List<String> getKeywords() {
-        return getValue(AnsibleProperties.KEYWORDS, List.class);
+    public String getIssues() {
+        return getValue(AnsibleProperties.ISSUES, String.class);
     }
 
-    public void setKeywords(final List<String> keywords) {
-        attributesEnumMap.put(AnsibleProperties.KEYWORDS, keywords);
+    public void setIssues(final String issues) {
+        attributesEnumMap.put(AnsibleProperties.ISSUES, issues);
     }
 
-    public List<Map<String, String>> getMaintainers() {
-
-        return getValue(AnsibleProperties.MAINTAINERS, List.class);
+    public String getHomepage() {
+        return getValue(AnsibleProperties.HOMEPAGE, String.class);
     }
 
-    public void setMaintainers(final List<Map<String, String>> maintainers) {
-        attributesEnumMap.put(AnsibleProperties.MAINTAINERS, maintainers);
-    }
-
-    public List<String> getSources() {
-        return getValue(AnsibleProperties.SOURCES, List.class);
+    public void setHomepage(final String home) {
+        attributesEnumMap.put(AnsibleProperties.HOMEPAGE, home);
     }
 
     private <T> T getValue(AnsibleProperties property, Class<T> tClass) {

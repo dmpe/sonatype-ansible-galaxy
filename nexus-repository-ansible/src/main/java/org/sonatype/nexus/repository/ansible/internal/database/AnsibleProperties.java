@@ -1,4 +1,4 @@
-package org.sonatype.repository.helm.internal.database;
+package org.sonatype.nexus.repository.ansible.internal.database;
 
 import java.util.Arrays;
 import java.util.Optional;

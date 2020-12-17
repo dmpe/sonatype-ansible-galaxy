@@ -2,7 +2,7 @@ package org.sonatype.nexus.repository.ansible.internal.cleanup;
 
 import com.google.common.collect.ImmutableMap;
 import org.sonatype.nexus.cleanup.config.CleanupPolicyConfiguration;
-import org.sonatype.nexus.repository.ansible.internal.AnsibleFormat;
+import org.sonatype.nexus.repository.ansible.internal.AnsibleGalaxyFormat;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -12,11 +12,11 @@ import static org.sonatype.nexus.repository.search.DefaultComponentMetadataProdu
 
 
 /**
- * Defines which cleanup policy fields to display for Helm.
+ * Defines which cleanup policy fields to display for Ansible.
  *
  * @since 1.0.0
  */
-@Named(AnsibleFormat.NAME)
+@Named(AnsibleGalaxyFormat.NAME)
 @Singleton
 public class AnsibleCleanUp implements CleanupPolicyConfiguration {
     @Override

@@ -15,7 +15,7 @@ package org.sonatype.nexus.repository.ansible.api;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.sonatype.nexus.repository.ansible.internal.AnsibleFormat;
+import org.sonatype.nexus.repository.ansible.internal.AnsibleGalaxyFormat;
 import org.sonatype.nexus.repository.rest.api.model.*;
 
 /**
@@ -33,6 +33,6 @@ public class AnsibleProxyRepositoryApiRequest extends ProxyRepositoryApiRequest 
             @JsonProperty("negativeCache") final NegativeCacheAttributes negativeCache,
             @JsonProperty("httpClient") final HttpClientAttributes httpClient,
             @JsonProperty("routingRule") final String routingRule) {
-        super(name, AnsibleFormat.NAME, online, storage, cleanup, proxy, negativeCache, httpClient, routingRule);
+        super(name, AnsibleGalaxyFormat.NAME, online, storage, cleanup, proxy, negativeCache, httpClient, routingRule);
     }
 }
